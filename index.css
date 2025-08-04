@@ -20,19 +20,18 @@
 .res-card{
     padding:5px;
     width:200px;
-    height: 100%;
     border: 1px solid black;
     margin: 5px;
 }
 .res-card:hover{
-    border: 1px solid black;
+    border: 1px solid red;
     cursor: pointer;
 }
 .search{
     padding: 10px;
 }
 .img{
-    height: 84px;
+    height: 150x;
     width: 190px;
     margin: 5px;
 }

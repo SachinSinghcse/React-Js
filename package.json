@@ -2,7 +2,7 @@
   "devDependencies": {
     "parcel": "^2.15.4"
   },
-  "name": "react-js",
+  "name": "react",
   "version": "1.0.0",
   "description": "this is react basic",
   "dependencies": {
