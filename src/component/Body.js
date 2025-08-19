@@ -6,6 +6,7 @@ import Shimmer from "./Shimmer";
 const Body = () => {
   const [resList, setResList] = useState([]);
   const [value, setValue] = useState(0);
+  const [searchValue,setSearchValue]=useState("")
 
   // useEffect(()=>{
   //     console.log("useeffect called")
@@ -34,10 +35,10 @@ const Body = () => {
     console.log(filterData, "asdsd");
     setResList(filterData);
   };
-  const search =async ()=>{
-    const data = await fetch("https://www.swiggy.com/dapi/restaurants/search/v3?lat=21.99740&lng=79.00110&str=nas&trackingId=undefined&submitAction=ENTER&queryUniqueId=a68253db-b48f-ac22-14d1-db5eec9e731c");
-    console.log(data,"singham")
-  }
+  // const search =async ()=>{
+  //   const data = await fetch("https://www.swiggy.com/dapi/restaurants/search/v3?lat=21.99740&lng=79.00110&str=nas&trackingId=undefined&submitAction=ENTER&queryUniqueId=a68253db-b48f-ac22-14d1-db5eec9e731c");
+  //   console.log(data,"singham")
+  // }
   // if(resList.length==0){
   //     return <Shimmer></Shimmer>
   // }
@@ -60,12 +61,21 @@ const Body = () => {
       </div>
       <div className="filter">
         <div className="">
-          <input type="text" ></input>
-          <button onClick={search}>Search</button>
+          <input type="text" value={searchValue} onChange={(e)=>{setSearchValue(e.target.value)}}></input>
+          <p>Value{searchValue}</p>
+          <button onClick={()=>{
+            let filterData=resList.filter((res)=>res.info.name.toLowerCase().includes(searchValue.toLowerCase()))
+            
+            console.log(filterData,"fghgfghgfgh")
+            setResList(filterData)
+            console.log("search value is this", resList)
+          }}>Search</button>
+          
         </div>
         <button
           className="filter-btn"
           onClick={getTopRated}
+
 
           // const filterRes = resList.filter((res) => {
 
